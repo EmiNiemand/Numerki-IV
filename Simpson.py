@@ -1,32 +1,24 @@
-import math
-
-
 def simpsonStart(function, l_range: float, u_range: float, accuracy: float):
-    n = 2
-    last_result = -1
+    last_result = 0
+    i = 0
+
     while True:
-        h = calculateH(l_range, u_range, n)
-        fx0 = function(l_range)
-        fxn = function(u_range)
+        result = 0
+        i += 1
+        for j in range(i):
+            # size of calculated subregion
+            size = abs(l_range - u_range) / i
+            result += calculate(function, l_range + size * j, l_range + size * (j + 1))
 
-        evenX = 0
-        oddX = 0
-        for i in range(2, n + 1, 2):
-            evenX += function(calculateH(u_range, l_range, n, i))
-            oddX += function(calculateH(u_range, l_range, n, i - 1))
-
-        result = calculateSimpson(h, fx0, fxn, evenX, oddX)
-        if math.fabs(result - last_result) < accuracy:
+        # if difference smaller than accuracy return result
+        if abs(result - last_result) < accuracy:
             return result
 
         last_result = result
-        n *= 2
 
 
-def calculateH(l_range: float, u_range: float, n: float, i: float = 1):
-    return (u_range - l_range) * i / n
-
-
-def calculateSimpson(h: float, fx0: float, fxn: float, evenX: float, oddX: float):
-    return (h / 3) * (fx0 + fxn + 4 * evenX + 2 * oddX)
-
+def calculate(function, l_range: float, u_range: float):
+    # https://ftims.edu.p.lodz.pl/pluginfile.php/186514/mod_resource/content/1/MNumOp%20wyk04%20_22.pdf
+    # slajd 16
+    h = (u_range - l_range) / 6
+    return h * (function(l_range) + 4 * function((l_range + u_range) / 2) + function(u_range))
