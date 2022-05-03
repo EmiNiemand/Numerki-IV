@@ -12,7 +12,6 @@ def main():
             case 2: fun = inF.fun_2
             case 3: fun = inF.fun_3
             case 4: fun = inF.fun_4
-            case 5: fun = inF.fun_5
             case _: fun = None
 
     l_range = float(input("Podaj dolny zakres: "))
@@ -34,10 +33,10 @@ def main():
 
 
 def main2():
-    print("Wynik Simpsonem =", sim.simpsonStart(inF.fun_5, 0, 4, 0.000000001))
-    print("Wynik Legendrem =", leg.legendreStart(inF.fun_5, 0, 4, 5))
+    print("Wynik Simpsonem =", sim.simpsonStart(inF.fun_4, -4, 4, 0.000000001))
+    print("Wynik Legendrem =", leg.legendreStart(inF.fun_4, -4, 4, 5))
 
 
 if __name__ == '__main__':
-    main()
-    # main2()
+    # main()
+    main2()

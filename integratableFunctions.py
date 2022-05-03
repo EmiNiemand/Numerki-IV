@@ -16,7 +16,3 @@ def fun_3(x):
 
 def fun_4(x):
     return sin(x)
-
-
-def fun_5(x):
-    return 7 * x ** 6 - 5 * x ** 3 - 2 * x ** 2 + 5 * x + 1
