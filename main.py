@@ -1,6 +1,7 @@
 import Simpson as sim
 import Legendre as leg
 import integratableFunctions as inF
+import draw
 
 
 def main():
@@ -23,6 +24,8 @@ def main():
 
     accuracy = float(input("Podaj wartość dokładności: "))
 
+    draw.draw_function(l_range, u_range, fun)
+
     node = 0
     while node not in list(range(2, 6)):
         node = int(input("Podaj liczbę węzłów [2-5]: "))
@@ -33,10 +36,11 @@ def main():
 
 
 def main2():
-    print("Wynik Simpsonem =", sim.simpsonStart(inF.fun_4, -4, 4, 0.000000001))
-    print("Wynik Legendrem =", leg.legendreStart(inF.fun_4, -4, 4, 5))
+    print("Wynik Simpsonem =", sim.simpsonStart(inF.fun_5, -4, 4, 0.000001))
+    print("Wynik Legendrem =", leg.legendreStart(inF.fun_5, -4, 4, 5))
+    draw.draw_function(-4, 4, inF.fun_5)
 
 
 if __name__ == '__main__':
-    # main()
+    #main()
     main2()

@@ -16,3 +16,8 @@ def fun_3(x):
 
 def fun_4(x):
     return sin(x)
+
+def fun_5(x):
+    if x == 0:
+        return 0
+    return sin(1/x)
