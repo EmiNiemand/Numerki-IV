@@ -13,6 +13,7 @@ def main():
             case 2: fun = inF.fun_2
             case 3: fun = inF.fun_3
             case 4: fun = inF.fun_4
+            case 5: fun = inF.fun_5
             case _: fun = None
 
     l_range = float(input("Podaj dolny zakres: "))
@@ -27,8 +28,8 @@ def main():
     draw.draw_function(l_range, u_range, fun)
 
     node = 0
-    while node not in list(range(2, 6)):
-        node = int(input("Podaj liczbę węzłów [2-5]: "))
+    while node not in list(range(2, 8)):
+        node = int(input("Podaj liczbę węzłów [2-7]: "))
 
     print("Wynik Simpsonem =", sim.simpsonStart(fun, l_range, u_range, accuracy))
     print("Wynik Legendrem =", leg.legendreStart(fun, l_range, u_range, node))
@@ -36,11 +37,11 @@ def main():
 
 
 def main2():
-    print("Wynik Simpsonem =", sim.simpsonStart(inF.fun_5, -4, 4, 0.000001))
-    print("Wynik Legendrem =", leg.legendreStart(inF.fun_5, -4, 4, 5))
+    print("Wynik Simpsonem =", sim.simpsonStart(inF.fun_5, -10, -4, 0.0001))
+    print("Wynik Legendrem =", leg.legendreStart(inF.fun_5, -10, -4, 5))
     draw.draw_function(-4, 4, inF.fun_5)
 
 
 if __name__ == '__main__':
-    #main()
+    # main()
     main2()

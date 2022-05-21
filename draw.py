@@ -1,6 +1,7 @@
 import matplotlib.pyplot as mplot
 import numpy as np
 
+
 def draw_function(lower_range, upper_range, function):
     axes = mplot.figure().subplots()
     x = np.linspace(lower_range, upper_range, 100)
@@ -18,4 +19,3 @@ def draw_function(lower_range, upper_range, function):
     axes.set_ylabel('Y')
 
     mplot.show()
-
